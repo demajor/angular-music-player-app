@@ -1,5 +1,3 @@
-// angular.module('blocJams', ['ui.router']);
-
 (function() {
     function config($stateProvider, $locationProvider) {
         $locationProvider
@@ -15,6 +13,7 @@
             })
             .state('album', {
                 url: '/album',
+                controller: 'AlbumCtrl as album',
                 templateUrl: '/templates/album.html'
             })
             .state('collection', {
