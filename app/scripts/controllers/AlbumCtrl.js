@@ -1,6 +1,6 @@
 (function() {
     function AlbumCtrl() {
-        this.album = {
+        this.albumData = {
         title: 'The Colors',
         artist: 'Pablo Picasso',
         label: 'Cubism',
