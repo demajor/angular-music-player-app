@@ -14,23 +14,36 @@
                     ng-click="playerBar.songPlayer.pause()">
                 </span>
             </a>
-            <a class="next">
+            <a class="next" ng-click="playerBar.songPlayer.next()">
                 <span class="ion-skip-forward"></span>
             </a>
         </div>
         <div class="control-group currently-playing">
-            <h2 class="song-name"></h2>
-            <h2 class="artist-song-mobile"></h2>
-            <h3 class="artist-name"></h3>
+            <h2 class="song-name">{{ playerBar.songPlayer.currentSong.title }}</h2>
+            <h2 class="artist-song-mobile">{{ playerBar.songPlayer.currentSong.title + playerBar.albumData.artist }}</h2>
+            <h3 class="artist-name">{{ playerBar.albumData.artist }}</h3>
             <div class="seek-control">
                 <div class="seek-bar">
                     <div class="fill"></div>
                     <div class="thumb"></div>
                 </div>
                 <div class="current-time"></div>
-                <div class="total-time"></div>
+                <div class="total-time">{{ playerBar.songPlayer.currentSong.duration }}</div>
             </div>
         </div>
+
+<!--     <div class="control-group currently-playing">
+        <h2 class="song-name"> {{ playerBar.songPlayer.currentSong.name }} </h2>
+        <h2 class="artist-song-mobile"> {{ playerBar.songPlayer.currentSong.name + playerBar.songPlayer.currentAlbum.artist }} </h2>
+        <h3 class="artist-name"> {{ playerBar.songPlayer.currentAlbum.artist }}</h3>
+        <div class="seek-control">
+            <seek-bar value="{{ playerBar.songPlayer.currentTime }}" max="{{ playerBar.songPlayer.currentSong.length }}" on-change="playerBar.songPlayer.setCurrentTime(value)"></seek-bar>
+            <div class="current-time"> {{ playerBar.songPlayer.currentTime | timecode }} </div>
+            <div class="total-time"> {{ playerBar.songPlayer.currentSong.duration | timecode }} </div>
+        </div>
+    </div> -->
+
+
         <div class="control-group volume">
             <span class="icon ion-volume-high"></span>
             <div class="seek-bar">
@@ -40,3 +53,5 @@
         </div>
     </div>
 </section>
+
+
