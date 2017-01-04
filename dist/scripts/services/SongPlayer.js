@@ -43,7 +43,7 @@
             * @desc Current playback time (in seconds) of currently playing song
             * @type {Number}
             */
-            SongPlayer.currentTime = null;
+            // SongPlayer.currentTime = null;
         };
 
         /**
@@ -78,10 +78,24 @@
 
 
         /**
-        * @desc Active song object from list of songs
+        * @desc Song object from list of songs
         * @type {Object}
         */
         SongPlayer.currentSong = null;
+
+        /**
+        * @desc Current play time of currently selected / playing song
+        * @type {Number}
+        */
+        SongPlayer.currentTime = null;
+
+        /**
+        * @desc Default volume set for initial song loudness
+        * @type {Number}
+        */
+        SongPlayer.volume = 70;
+
+
 
         SongPlayer.play = function(song) {
             song = song || SongPlayer.currentSong;
@@ -106,7 +120,7 @@
 
         /**
         * @function previous
-        * @desc plays previous song
+        * @desc Plays previous song
         * @param {Object} 
         */
         SongPlayer.previous = function() {
@@ -144,13 +158,25 @@
 
         /**
         * @function setCurrentTime
-        * @desc Set current time (in seconds) of currently playing song
+        * @desc Set current time of currently playing song
         * @param {Number} time
         */
         SongPlayer.setCurrentTime = function(time) {
             if (currentBuzzObject) {
                 currentBuzzObject.setTime(time);
             }
+        };
+
+        /**
+        * @function setVolume
+        * @desc Set volume for songs
+        * @param {Number} volume
+        */
+        SongPlayer.setVolume = function(volume) {
+            if (currentBuzzObject) {
+                currentBuzzObject.setVolume(volume);
+            }
+            SongPlayer.volume = volume;
         };
 
         return SongPlayer;
