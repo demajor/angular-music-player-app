@@ -22,7 +22,6 @@
         var setSong = function(song) {
             if (currentBuzzObject) {
                 stopSong(song);
-                // currentSong.playing = null;
                 SongPlayer.currentSong.playing = null;
             }
 
@@ -38,12 +37,6 @@
             });
 
             SongPlayer.currentSong = song; 
-
-            /**
-            * @desc Current playback time (in seconds) of currently playing song
-            * @type {Number}
-            */
-            // SongPlayer.currentTime = null;
         };
 
         /**
@@ -66,7 +59,6 @@
             song.playing = null;
         };
 
-
         /**
         * @function getSongIndex
         * @desc retrieves the index of a song
@@ -75,7 +67,6 @@
         var getSongIndex = function(song) {
             return currentAlbum.songs.indexOf(song);
         };
-
 
         /**
         * @desc Song object from list of songs
@@ -95,8 +86,6 @@
         */
         SongPlayer.volume = 70;
 
-
-
         SongPlayer.play = function(song) {
             song = song || SongPlayer.currentSong;
             if (SongPlayer.currentSong !== song) {
@@ -104,8 +93,7 @@
                 playSong(song);
             } else if (SongPlayer.currentSong === song) {
                 if (currentBuzzObject.isPaused()) {
-                    currentBuzzObject.play();
-                    // playSong(song);
+                    playSong(song);
                 }
             } 
         };
@@ -128,15 +116,13 @@
             currentSongIndex--;
 
             if (currentSongIndex < 0) {
-                stopSong(song);
-                SongPlayer.currentSong.playing = song;
+                stopSong(SongPlayer.currentSong);
             } else {
                 var song = currentAlbum.songs[currentSongIndex];
                 setSong(song);
                 playSong(song);
             }
         };
-
 
         /**
         * @function next
@@ -148,7 +134,7 @@
             currentSongIndex++;
 
             if (currentSongIndex > (currentAlbum.songs.length - 1)) {
-                stopSong(song);
+                stopSong(SongPlayer.currentSong);
             } else {
                 var song = currentAlbum.songs[currentSongIndex];
                 setSong(song);
