@@ -1,5 +1,6 @@
 (function() {
     function Fixtures() {
+
         var Fixtures = {};
 
         var albumPicasso = {
@@ -40,12 +41,14 @@
             var collection = [];
             for (var i = 0; i < numberOfAlbums; i++) {
                 collection.push(angular.copy(albumPicasso));
+
             }
             return collection;
+            
         };
 
         return Fixtures;
-    }
+    };
 
     angular
         .module('blocJams')

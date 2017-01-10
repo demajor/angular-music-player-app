@@ -15,14 +15,16 @@
 </head>
 <body>
     <nav class="navbar"> <!-- nav bar -->
-      <a ui-sref="album" class="logo">
+      <a ui-sref="landing" class="logo">
         <img src="assets/images/bloc_jams_logo.png" alt="bloc jams logo">
       </a>
       <div class="links-container">
         <a ui-sref="collection" class="navbar-link">collection</a>
       </div>
     </nav>
+
     <ui-view></ui-view>
+
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
